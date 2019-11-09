@@ -1,0 +1,9 @@
+Projeto com strutura base para criar sistemas web.
+Para a criação desse template, utilizado um template bootstrap admin,
+que fo modificado utilizando as seguintes tecnologias/ferramentas abaixo:
+1 - Spring MVC / Spring Boot
+2 - Java 8
+3 - Maven 3
+4 - Eclipse Neon
+5 - Banco de Dados Postgres
+6 - Thymeleaf - https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html
