@@ -35,9 +35,9 @@ public class EmpresaResource {
 	@PostMapping("/empresas")
 	public ResponseEntity<Empresa> save(@RequestBody EmpresaDTO empresaDTO) {
 		Empresa empresa = this.service.save(empresaDTO);
-		empresa.add(linkTo(methodOn(EmpresaResource.class).removeById(empresa.getCodigo())).withRel("Deleta Empresa"));
-		empresa.add(linkTo(methodOn(EmpresaResource.class).getById(empresa.getCodigo())).withRel("Recupera Empresa"));
-		empresa.add(linkTo(methodOn(EmpresaResource.class).update(empresa)).withRel("Edita Empresa"));			
+		empresa.add(linkTo(methodOn(EmpresaResource.class).removeById(empresa.getCodigo())).withRel("Apagar Empresa").withType("DELETE").withTitle("Remove uma empresa dado o seu ID"));
+		empresa.add(linkTo(methodOn(EmpresaResource.class).getById(empresa.getCodigo())).withRel("Recuperar Empresa").withType("GET").withTitle("Busca uma empresa dado o seu ID"));
+		empresa.add(linkTo(methodOn(EmpresaResource.class).update(empresa)).withRel("Editar Empresa").withType("PUT").withTitle("Edita uma empresa"));			
 		return new ResponseEntity<Empresa>(empresa, HttpStatus.CREATED);
 	}
 		
@@ -45,9 +45,9 @@ public class EmpresaResource {
 	public ResponseEntity<List<Empresa>> list(){
 		List<Empresa> empresas = this.service.list();
 		for(Empresa empresa : empresas) {
-			empresa.add(linkTo(methodOn(EmpresaResource.class).removeById(empresa.getCodigo())).withRel("Deleta Empresa"));
-			empresa.add(linkTo(methodOn(EmpresaResource.class).getById(empresa.getCodigo())).withRel("Recupera Empresa"));
-			empresa.add(linkTo(methodOn(EmpresaResource.class).update(empresa)).withRel("Edita Empresa"));			
+			empresa.add(linkTo(methodOn(EmpresaResource.class).removeById(empresa.getCodigo())).withRel("Apagar Empresa").withType("DELETE").withTitle("Remove uma empresa dado o seu ID"));
+			empresa.add(linkTo(methodOn(EmpresaResource.class).getById(empresa.getCodigo())).withRel("Recuperar Empresa").withType("GET").withTitle("Busca uma empresa dado o seu ID"));
+			empresa.add(linkTo(methodOn(EmpresaResource.class).update(empresa)).withRel("Editar Empresa").withType("PUT").withTitle("Edita uma empresa"));			
 		}
 		return ResponseEntity.ok(empresas);
 	}
